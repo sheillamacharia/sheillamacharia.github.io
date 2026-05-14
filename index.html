@@ -1,1 +1,180 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sheilla Macharia | Data Scientist Portfolio</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f8fafc;
+            --accent: #38bdf8; /* Change this hex code to your favorite color! */
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; color: var(--accent); }
+        .tagline { font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 20px; }
+        
+        .section-title {
+            border-bottom: 2px solid var(--card);
+            padding-bottom: 10px;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        .skill-tag {
+            background: var(--card);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #334155;
+        }
+
+        /* Project Grid */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            background: var(--card);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .tech-stack { font-size: 0.75rem; color: var(--accent); font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
+        .card h3 { margin: 0 0 10px 0; }
+        .card p { font-size: 0.95rem; opacity: 0.8; flex-grow: 1; }
+        .links { margin-top: 20px; }
+        .links a { color: var(--text); text-decoration: none; font-size: 0.9rem; margin-right: 15px; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
+
+        /* Download CV Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 80px;
+            padding: 50px 20px;
+            background: var(--card);
+            border-radius: 16px;
+            border: 1px dashed var(--accent);
+        }
+        .download-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 15px 35px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+        .download-btn:hover { transform: scale(1.05); }
+
+        @media (max-width: 600px) { .project-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sheilla Macharia</h1>
+            <p class="tagline">Data Science practitioner with a background in Applied Mathematics. Passionate about turning raw data into meaningful stories that drive smarter decisions. [cite: 4, 6]</p>
+            <div style="margin-top: 20px;">
+                <a href="mailto:sheilamacharia8@gmail.com" style="color:var(--accent); text-decoration: none; margin: 0 10px;">Email</a> • 
+                <a href="https://github.com/yourusername" style="color:var(--accent); text-decoration: none; margin: 0 10px;">GitHub</a> • 
+                <a href="https://linkedin.com/in/yourusername" style="color:var(--accent); text-decoration: none; margin: 0 10px;">LinkedIn</a>
+            </div>
+        </header>
+
+        <h2 class="section-title">Technical Expertise</h2>
+        <div class="skills-container">
+            <span class="skill-tag">Python (Pandas, NumPy, Scikit-learn) [cite: 7, 9]</span>
+            <span class="skill-tag">Tableau & Power BI [cite: 10]</span>
+            <span class="skill-tag">SQL [cite: 7, 29]</span>
+            <span class="skill-tag">Predictive Modelling [cite: 11]</span>
+            <span class="skill-tag">Data Visualization [cite: 11]</span>
+            <span class="skill-tag">Feature Engineering [cite: 11, 41]</span>
+            <span class="skill-tag">Applied Mathematics [cite: 4, 34]</span>
+        </div>
+
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="project-grid">
+            <div class="card">
+                <div class="tech-stack">Python • Scikit-learn • Telecom [cite: 13]</div>
+                <h3>SyriaTel Churn Prediction</h3>
+                <p>Identified churn patterns and quantified revenue-at-risk segments to drive retention strategies. [cite: 15, 16]</p>
+                <div class="links">
+                    <a href="#">GitHub Repo</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="tech-stack">Tableau • Python • Safety Analysis [cite: 25]</div>
+                <h3>Aviation Risk Insights</h3>
+                <p>Analyzed 100+ years of accident data to highlight critical safety focus areas for airlines. [cite: 26, 27]</p>
+                <div class="links">
+                    <a href="#">Interactive Dashboard</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="tech-stack">Data Analytics • Pandas • Business Intelligence [cite: 17]</div>
+                <h3>Supermarket Sales Analysis</h3>
+                <p>Assessed store performance to optimize layout and inventory strategy based on sales efficiency. [cite: 18, 20]</p>
+                <div class="links">
+                    <a href="#">View Notebook</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="tech-stack">Clinical Data Science • Modeling [cite: 6]</div>
+                <h3>Heart Failure Prediction</h3>
+                <p>Built a predictive model for clinical outcomes using health records to determine patient risk factors. [cite: 6]</p>
+                <div class="links">
+                    <a href="#">GitHub Repo</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="cta-section">
+            <h2 style="margin-top: 0;">View Professional Experience</h2>
+            <p>I am currently finalizing my Bachelor of Science in Applied Mathematics and am open to Data Science opportunities. [cite: 34, 35]</p>
+            <a href="Sheilla_Macharia_CV_2026.pdf" 
+               download="Sheilla_Macharia_CV" 
+               class="download-btn">
+               Download Full CV (PDF)
+            </a>
+        </section>
+
+        <footer style="margin-top: 80px; text-align: center; opacity: 0.5; font-size: 0.8rem;">
+            <p>&copy; 2026 Sheilla Macharia. Built with HTML/CSS. [cite: 7]</p>
+        </footer>
+    </div>
+</body>
+</html>
