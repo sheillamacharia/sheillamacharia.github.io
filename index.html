@@ -3,143 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheilla Macharia | Data Storyteller</title>
+    <title>Sheilla Mumbi Macharia | Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
         :root {
             --bg: #030712;
             --accent: #38bdf8;
             --secondary: #818cf8;
-            --glass: rgba(15, 23, 42, 0.8);
+            --python: #3776ab;
+            --sql: #f29111;
+            --tableau: #e97627;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg);
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.05) 0%, transparent 50%);
             color: #f8fafc;
             margin: 0;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
+        /* Top Navigation Placeholder */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 5%;
+            position: absolute;
+            width: 90%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-links a {
+            color: #f8fafc;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Hero Section - Centered Column */
         .hero {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
+            align-items: center; /* Centers everything horizontally */
+            text-align: center; /* Centers text within elements */
             position: relative;
+            padding: 0 20px;
         }
 
-        /* Doodle Decorations */
-        .doodle {
-            position: absolute;
-            z-index: -1;
-            opacity: 0.4;
-            filter: drop-shadow(0 0 10px var(--accent));
-        }
+        .doodle { position: absolute; z-index: -1; opacity: 0.3; filter: blur(1px); }
+
+        .greeting { font-size: 1.1rem; margin-bottom: 10px; opacity: 0.9; }
 
         h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 5rem;
-            margin: 0;
-            line-height: 0.9;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin: 0 0 30px 0;
+            line-height: 1.1;
+            max-width: 900px;
         }
 
-        .highlight {
-            color: var(--accent);
-            text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+        .highlight-solve { color: var(--accent); text-shadow: 0 0 30px rgba(56, 189, 248, 0.4); }
+        .highlight-story { color: var(--secondary); text-shadow: 0 0 30px rgba(129, 140, 248, 0.4); }
+
+        /* Skill Toolbelt - Improved with Icons & Colors */
+        .toolbelt {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
         }
 
-        /* Project Section */
-        .container { max-width: 1100px; margin: 0 auto; padding: 100px 20px; }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--glass);
-            border: 2px solid #1e293b;
-            border-radius: 30px;
-            padding: 10px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .card:hover {
-            transform: rotate(-2deg) scale(1.02);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .card-inner {
-            background: #0f172a;
-            border-radius: 20px;
-            padding: 30px;
-            height: 100%;
-        }
-
-        .category {
+        .skill-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(30, 41, 59, 0.5);
+            padding: 10px 20px;
+            border-radius: 100px;
             font-weight: 800;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            color: var(--secondary);
+            font-size: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
-        /* Call to Action - Resume */
-        .cta {
-            background: linear-gradient(90deg, var(--accent), var(--secondary));
-            padding: 80px;
-            border-radius: 40px;
-            text-align: center;
-            color: #030712;
-            margin: 100px 0;
-        }
+        .skill-tag i { font-size: 1.2rem; }
+        .skill-tag:hover { transform: translateY(-3px); background: rgba(255, 255, 255, 0.05); }
+        
+        .tag-python { color: #4b8bbe; border-bottom: 2px solid #4b8bbe; }
+        .tag-sql { color: #f29111; border-bottom: 2px solid #f29111; }
+        .tag-tableau { color: #e97627; border-bottom: 2px solid #e97627; }
+        .tag-ml { color: #38bdf8; border-bottom: 2px solid #38bdf8; }
 
-        .btn {
-            background: #030712;
-            color: white;
-            padding: 20px 40px;
+        /* Centered Contact Button */
+        .btn-contact {
+            background: transparent;
+            color: var(--accent);
+            padding: 15px 35px;
             border-radius: 100px;
             text-decoration: none;
             font-weight: 800;
-            display: inline-block;
-            margin-top: 30px;
+            border: 2px solid var(--accent);
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
         }
 
-        @media (max-width: 768px) { h1 { font-size: 3rem; } }
+        .btn-contact:hover {
+            background: var(--accent);
+            color: var(--bg);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+        }
+
+        /* Floating Doodles (Placeholder paths) */
+        .doodle-1 { top: 20%; left: 15%; width: 120px; }
+        .doodle-2 { bottom: 20%; right: 15%; width: 100px; }
+
     </style>
 </head>
 <body>
 
     <nav>
-        <div style="font-weight: 800; font-size: 1.2rem;">SM.</div>
+        <div style="font-weight: 800; font-size: 1.2rem; letter-spacing: -1px;">SM.</div>
         <div class="nav-links">
-            <a href="#projects">Projects</a>
             <a href="https://github.com/sheillamacharia">GitHub</a>
-            <a href="sheilamacharia8@gmail.com" class="contact-top"> Email me</a>
-            <a href="https://www.linkedin.com/in/sheilla-macharia-458422324/" class="contact-top"> Linked in</a>
+            <a href="https://www.linkedin.com/in/sheilla-macharia-458422324/">LinkedIn</a>
         </div>
     </nav>
 
     <section class="hero">
-        <svg class="doodle" style="top:20%; left:10%; width:150px" viewBox="0 0 100 100"><path d="M10,50 Q25,10 50,50 T90,50" fill="none" stroke="#38bdf8" stroke-width="2"/></svg>
-        <p>Hi, I'm Sheilla Mumbi Macharia 👋🏾</p>
-        <h1>I <span class="highlight">solve</span> and <span class="highlight">storytell</span> with data.</h1>
+        <svg class="doodle doodle-1" viewBox="0 0 100 100">
+            <path d="M10,50 Q25,10 50,50 T90,50" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <svg class="doodle doodle-2" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="30" fill="none" stroke="#818cf8" stroke-width="2" stroke-dasharray="5,5"/>
+        </svg>
+
+        <p class="greeting">Hi, I'm Sheilla Mumbi Macharia 👋</p>
+        
+        <h1>I <span class="highlight-solve">solve</span> and <span class="highlight-story">storytell</span> with data.</h1>
         
         <div class="toolbelt">
-            <div class="skill-icon">PYTHON</div>
-            <div class="skill-icon">SQL</div>
-            <div class="skill-icon">TABLEAU</div>
-            <div class="skill-icon">ML MODELING</div>
+            <div class="skill-tag tag-python"><i class="ph-bold ph-code"></i> PYTHON</div>
+            <div class="skill-tag tag-sql"><i class="ph-bold ph-database"></i> SQL</div>
+            <div class="skill-tag tag-tableau"><i class="ph-bold ph-chart-pie-slice"></i> TABLEAU</div>
+            <div class="skill-tag tag-ml"><i class="ph-bold ph-brain"></i> ML MODELING</div>
         </div>
+
+        <a href="mailto:sheilamacharia8@gmail.com" class="btn-contact">Email Me</a>
     </section>
 
     <div class="container">
@@ -189,12 +209,14 @@
             <a href="Sheilla_Macharia_CV_2026.pdf" download class="btn">DOWNLOAD CV</a>
         </section>
 
+       <nav>
+        <div style="font-weight: 800; font-size: 1.2rem; letter-spacing: -1px;">SM.</div>
         <div class="nav-links">
-            <a href="#projects">Projects</a>
             <a href="https://github.com/sheillamacharia">GitHub</a>
-            <a href="sheilamacharia8@gmail.com" class="contact-top"> Email me</a>
-            <a href="https://www.linkedin.com/in/sheilla-macharia-458422324/" class="contact-top"> Linked in</a>
+            <a href="https://www.linkedin.com/in/sheilla-macharia-458422324/">LinkedIn</a>
+            <a href="mailto:sheilamacharia8@gmail.com" class="btn-contact">Email Me</a>
         </div>
+    </nav>
     </div>
 
 </body>
