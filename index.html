@@ -11,10 +11,11 @@
             --bg: #030712;
             --accent: #38bdf8;
             --secondary: #818cf8;
-            --python: #3776ab;
-            --sql: #f29111;
-            --tableau: #e97627;
+            --glass: rgba(15, 23, 42, 0.8);
+            --card-bg: #0f172a;
         }
+
+        * { box-sizing: border-box; }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -25,16 +26,22 @@
             scroll-behavior: smooth;
         }
 
-        /* Top Navigation Placeholder */
+        /* Layout Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 5%;
-            position: absolute;
-            width: 90%;
-            top: 0;
-            z-index: 100;
+            padding: 30px 0;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .nav-links a {
@@ -44,36 +51,32 @@
             font-weight: 700;
             font-size: 0.85rem;
             opacity: 0.7;
+            transition: opacity 0.3s;
         }
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
 
-        /* Hero Section - Centered Column */
+        /* HERO SECTION - The Centered Part */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center; /* Centers everything horizontally */
-            text-align: center; /* Centers text within elements */
+            align-items: center;
+            text-align: center;
             position: relative;
-            padding: 0 20px;
         }
-
-        .doodle { position: absolute; z-index: -1; opacity: 0.3; filter: blur(1px); }
-
-        .greeting { font-size: 1.1rem; margin-bottom: 10px; opacity: 0.9; }
 
         h1 {
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(2.5rem, 8vw, 5rem);
-            margin: 0 0 30px 0;
+            margin: 20px 0 30px 0;
             line-height: 1.1;
-            max-width: 900px;
         }
 
         .highlight-solve { color: var(--accent); text-shadow: 0 0 30px rgba(56, 189, 248, 0.4); }
         .highlight-story { color: var(--secondary); text-shadow: 0 0 30px rgba(129, 140, 248, 0.4); }
 
-        /* Skill Toolbelt - Improved with Icons & Colors */
+        /* Toolbelt/Skills */
         .toolbelt {
             display: flex;
             justify-content: center;
@@ -92,19 +95,46 @@
             font-weight: 800;
             font-size: 0.75rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
         }
 
-        .skill-tag i { font-size: 1.2rem; }
-        .skill-tag:hover { transform: translateY(-3px); background: rgba(255, 255, 255, 0.05); }
-        
         .tag-python { color: #4b8bbe; border-bottom: 2px solid #4b8bbe; }
         .tag-sql { color: #f29111; border-bottom: 2px solid #f29111; }
         .tag-tableau { color: #e97627; border-bottom: 2px solid #e97627; }
-        .tag-ml { color: #38bdf8; border-bottom: 2px solid #38bdf8; }
+        .tag-ml { color: var(--accent); border-bottom: 2px solid var(--accent); }
 
-        /* Centered Contact Button */
-        .btn-contact {
+        /* PROJECT GRID SECTION */
+        .projects-section { padding: 100px 0; }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--glass);
+            border: 2px solid #1e293b;
+            border-radius: 30px;
+            padding: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover { transform: rotate(-2deg) scale(1.02); border-color: var(--accent); }
+
+        .card-inner {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 { margin: 15px 0 10px 0; }
+        .card p { opacity: 0.7; font-size: 0.9rem; flex-grow: 1; }
+
+        /* Buttons */
+        .btn {
             background: transparent;
             color: var(--accent);
             padding: 15px 35px;
@@ -112,103 +142,107 @@
             text-decoration: none;
             font-weight: 800;
             border: 2px solid var(--accent);
+            display: inline-block;
             transition: all 0.3s;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        .btn-contact:hover {
-            background: var(--accent);
-            color: var(--bg);
-            box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
-        }
+        .btn:hover { background: var(--accent); color: var(--bg); box-shadow: 0 0 20px rgba(56, 189, 248, 0.4); }
 
-        /* Floating Doodles (Placeholder paths) */
-        .doodle-1 { top: 20%; left: 15%; width: 120px; }
-        .doodle-2 { bottom: 20%; right: 15%; width: 100px; }
+        .btn-filled { background: var(--accent); color: var(--bg); }
 
+        /* Doodles */
+        .doodle { position: absolute; z-index: -1; opacity: 0.2; }
+
+        footer { text-align: center; padding: 60px 0; opacity: 0.4; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div style="font-weight: 800; font-size: 1.2rem; letter-spacing: -1px;">SM.</div>
-        <div class="nav-links">
-            <a href="https://github.com/sheillamacharia">GitHub</a>
-            <a href="https://www.linkedin.com/in/sheilla-macharia-458422324/">LinkedIn</a>
-        </div>
-    </nav>
-
-    <section class="hero">
-        <svg class="doodle doodle-1" viewBox="0 0 100 100">
-            <path d="M10,50 Q25,10 50,50 T90,50" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-        <svg class="doodle doodle-2" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="30" fill="none" stroke="#818cf8" stroke-width="2" stroke-dasharray="5,5"/>
-        </svg>
-
-        <p class="greeting">Hi, I'm Sheilla Mumbi Macharia 👋</p>
-        
-        <h1>I <span class="highlight-solve">solve</span> and <span class="highlight-story">storytell</span> with data.</h1>
-        
-        <div class="toolbelt">
-            <div class="skill-tag tag-python"><i class="ph-bold ph-code"></i> PYTHON</div>
-            <div class="skill-tag tag-sql"><i class="ph-bold ph-database"></i> SQL</div>
-            <div class="skill-tag tag-tableau"><i class="ph-bold ph-chart-pie-slice"></i> TABLEAU</div>
-            <div class="skill-tag tag-ml"><i class="ph-bold ph-brain"></i> ML MODELING</div>
-        </div>
-
-        <a href="mailto:sheilamacharia8@gmail.com" class="btn-contact">Email Me</a>
-    </section>
-
     <div class="container">
-        <h2 style="font-family: 'Space Grotesk'; font-size: 2.5rem; margin-bottom: 50px;">Featured Projects.</h2>
-        
-        <div class="project-grid">
-            <div class="card">
-                <div class="card-inner">
-                    <span class="category">Predictive Modeling</span>
-                    <h3>SyriaTel Churn Prediction</h3>
-                    <p>Quantifying revenue-at-risk using classification models for telecom retention.</p>
-                    <a href="https://github.com/sheillamacharia/SyriaTel_Retention_Insights.git" style="color:var(--accent); text-decoration: none; font-weight: bold;">View Project →</a>
-                </div>
+        <nav>
+            <div style="font-weight: 800; font-size: 1.2rem;">SM.</div>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="https://github.com/sheillamacharia">Github</a>
+                <a href="https://www.linkedin.com/in/sheilla-macharia-458422324/">Linkedin</a>
+                
+            </div>
+        </nav>
+
+        <section class="hero">
+            <svg class="doodle" style="top:10%; left:-5%; width:200px" viewBox="0 0 100 100"><path d="M10,50 Q25,10 50,50 T90,50" fill="none" stroke="#38bdf8" stroke-width="2"/></svg>
+            
+            <p>Hi, I'm Sheilla Mumbi Macharia 👋🏾</p>
+            <h1>I <span class="highlight-solve">solve</span> and <span class="highlight-story">storytell</span> with data.</h1>
+            
+            <div class="toolbelt">
+                <div class="skill-tag tag-python"><i class="ph-bold ph-code"></i> PYTHON</div>
+                <div class="skill-tag tag-sql"><i class="ph-bold ph-database"></i> SQL</div>
+                <div class="skill-tag tag-tableau"><i class="ph-bold ph-chart-pie-slice"></i> TABLEAU</div>
+                <div class="skill-tag tag-ml"><i class="ph-bold ph-brain"></i> ML MODELING</div>
             </div>
 
-            <div class="card">
-                <div class="card-inner">
-                    <span class="category">Visualization</span>
-                    <h3>Aviation Risk Insights</h3>
-                    <p>Analyzing 100+ years of flight safety data to identify operational risk factors.</p>
-                    <a href="https://public.tableau.com/views/AviationAccidentRates/AircraftandOperationalRiskFactors?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" style="color:var(--accent); text-decoration: none; font-weight: bold;">View Dashboard →</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-inner">
-                    <span class="category">Probability</span>
-                    <h3>NCAA Tournament Forecast</h3>
-                    <p>Applying mathematical modeling to predict high-volatility tournament outcomes.</p>
-                    <a href="https://github.com/sheillamacharia/Forecast_the_2026_NCAA_Basketball_Tournaments_Competition.git" style="color:var(--accent); text-decoration: none; font-weight: bold;">View Notebook →</a>
-                </div>
-            </div>
-
-             <div class="card">
-                <div class="card-inner">
-                    <span class="category">Application</span>
-                    <h3>Kenya Regional Crop Yield Prediction</h3>
-                    <p>Developing a supervised machine learning model capable of predicting regional crop yield in Kenya using historical production data, climate variables, and agricultural input usage.</p>
-                    <a href="https://regional-crop-yield-prediction-kenya.onrender.com/" style="color:var(--accent); text-decoration: none; font-weight: bold;">View App →</a>
-                </div>
-            </div>
-        </div>
-
-        <section class="cta">
-            <h2 style="font-family: 'Space Grotesk'; font-size: 3rem;">Ready to collaborate?</h2>
-            <p>Download my full CV to see my technical toolbelt.</p>
-            <a href="Sheilla_Macharia_CV_2026.pdf" download class="btn">DOWNLOAD CV</a>
+            <a href="mailto:sheilamacharia8@gmail.com" class="btn">Contact Me</a>
         </section>
 
+        <section class="projects-section" id="projects">
+            <h2 style="font-family: 'Space Grotesk'; font-size: 3rem; text-align: center; margin-bottom: 50px;">Featured <span class="highlight-solve">Projects</span></h2>
+            
+            <div class="project-grid">
+                <div class="card">
+                    <div class="card-inner">
+                        <span class="tag-ml" style="font-size: 0.6rem; padding: 4px 10px;">PREDICTIVE</span>
+                        <h3>SyriaTel Churn</h3>
+                        <p>Identifying commercial drivers of churn to protect revenue streams.</p>
+                        <a href="https://github.com/sheillamacharia/SyriaTel_Retention_Insights.git" style="color:var(--accent); text-decoration:none; font-weight:800; margin-top:15px;">View Repo →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <span class="tag-tableau" style="font-size: 0.6rem; padding: 4px 10px;">TABLEAU</span>
+                        <h3>Aviation Risk</h3>
+                        <p>100-year safety analysis visualizing risk factors across aircraft models.</p>
+                        <a href="https://public.tableau.com/views/AviationAccidentRates/AircraftandOperationalRiskFactors?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" style="color:var(--accent); text-decoration:none; font-weight:800; margin-top:15px;">Dashboard →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <span class="tag-python" style="font-size: 0.6rem; padding: 4px 10px;">MATH</span>
+                        <h3>NCAA Forecast</h3>
+                        <p>Probabilistic tournament modeling using historical performance data.</p>
+                        <a href="https://github.com/sheillamacharia/Forecast_the_2026_NCAA_Basketball_Tournaments_Competition.git" style="color:var(--accent); text-decoration:none; font-weight:800; margin-top:15px;">View Repo →</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-inner">
+                        <span class="tag-python" style="font-size: 0.6rem; padding: 4px 10px;">Application</span>
+                        <h3>Regional Crop Yield Prediction</h3>
+                        <p>Developing a supervised machine learning model capable of predicting regional crop yield in Kenya using historical production data, climate variables, and agricultural input usage.</p>
+                        <a href="https://regional-crop-yield-prediction-kenya.onrender.com/" style="color:var(--accent); text-decoration:none; font-weight:800; margin-top:15px;">View App →</a>
+                        <a href="https://github.com/sheillamacharia/Regional_Crop_Yield_Prediction_Kenya.git" style="color:var(--accent); text-decoration:none; font-weight:800; margin-top:15px;">View Repo→</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero" style="min-height: 60vh;">
+            <h2 style="font-family: 'Space Grotesk'; font-size: 3rem;">Let's <span class="highlight-story">Collaborate</span>.</h2>
+            <p style="margin-bottom: 40px; opacity: 0.8;">Finalizing my Applied Math degree and ready for the next data challenge.</p>
+            
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+                <a href="Sheilla_Macharia_CV_2026.pdf" download class="btn btn-filled">DOWNLOAD CV</a>
+                <a href="mailto:sheilamacharia8@gmail.com" class="btn">GET IN TOUCH</a>
+            </div>
+        </section>
+
+        <footer>
+            &copy; 2026 Sheilla Macharia. Built with passion & data.
+        </footer>
     </div>
 
 </body>
