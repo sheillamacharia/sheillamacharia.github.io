@@ -3,210 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheilla Macharia | Data Science Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Sheilla Macharia | Data Storyteller</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0b0f1a;
-            --glass: rgba(30, 41, 59, 0.7);
-            --text: #f8fafc;
-            --accent-1: #38bdf8;
-            --accent-2: #818cf8;
-            --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --bg: #030712;
+            --accent: #38bdf8;
+            --secondary: #818cf8;
+            --glass: rgba(15, 23, 42, 0.8);
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: radial-gradient(circle at top right, #1e293b, #0b0f1a);
-            color: var(--text);
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.05) 0%, transparent 50%);
+            color: #f8fafc;
             margin: 0;
-            padding: 0;
-            min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        header {
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            margin-bottom: 80px;
+            position: relative;
+        }
+
+        /* Doodle Decorations */
+        .doodle {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.4;
+            filter: drop-shadow(0 0 10px var(--accent));
         }
 
         h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            background: var(--gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 5rem;
+            margin: 0;
+            line-height: 0.9;
         }
 
-        .tagline { font-size: 1.2rem; opacity: 0.8; max-width: 700px; margin: 0 auto 25px; }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            transition: color 0.3s;
+        .highlight {
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
         }
 
-        .nav-links a:hover { color: var(--accent-1); }
+        /* Project Section */
+        .container { max-width: 1100px; margin: 0 auto; padding: 100px 20px; }
 
-        .section-title {
-            font-size: 1.8rem;
-            margin: 60px 0 30px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .section-title::after {
-            content: "";
-            height: 2px;
-            flex-grow: 1;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Project Cards */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .card {
             background: var(--glass);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid #1e293b;
+            border-radius: 30px;
+            padding: 10px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            overflow: hidden;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent-1);
-            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15);
+            transform: rotate(-2deg) scale(1.02);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .icon { font-size: 2rem; margin-bottom: 15px; display: block; }
+        .card-inner {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 30px;
+            height: 100%;
+        }
 
-        .tech-tag {
+        .category {
+            font-weight: 800;
+            text-transform: uppercase;
             font-size: 0.7rem;
-            background: rgba(56, 189, 248, 0.1);
-            color: var(--accent-1);
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-weight: 700;
-            margin-right: 5px;
+            letter-spacing: 2px;
+            color: var(--secondary);
         }
 
-        .card h3 { margin: 15px 0 10px; font-size: 1.4rem; }
-        .card p { font-size: 0.95rem; opacity: 0.7; line-height: 1.5; }
+        /* Call to Action - Resume */
+        .cta {
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            padding: 80px;
+            border-radius: 40px;
+            text-align: center;
+            color: #030712;
+            margin: 100px 0;
+        }
 
         .btn {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--accent-1);
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        /* Resume Section */
-        .resume-cta {
-            margin-top: 100px;
-            background: var(--gradient);
-            padding: 60px;
-            border-radius: 32px;
-            text-align: center;
-            color: #0b0f1a;
-        }
-
-        .resume-cta h2 { font-size: 2.2rem; margin-bottom: 15px; }
-
-        .download-btn {
-            background: #0b0f1a;
+            background: #030712;
             color: white;
-            padding: 18px 40px;
-            border-radius: 16px;
+            padding: 20px 40px;
+            border-radius: 100px;
             text-decoration: none;
             font-weight: 800;
             display: inline-block;
-            margin-top: 25px;
-            transition: transform 0.3s;
+            margin-top: 30px;
         }
 
-        .download-btn:hover { transform: scale(1.05); }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            .resume-cta { padding: 40px 20px; }
-        }
+        @media (max-width: 768px) { h1 { font-size: 3rem; } }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Sheilla Macharia</h1>
-            <p class="tagline">Data Scientist & Applied Mathematician specializing in turning raw data into meaningful visual stories.</p>
-            <div class="nav-links">
-                <a href="mailto:sheilamacharia8@gmail.com">Email</a>
-                <a href="https://github.com/sheillamacharia">GitHub</a>
-                <a href="https://www.linkedin.com/in/sheilla-macharia-458422324/">LinkedIn</a>
-            </div>
-        </header>
 
-        <h2 class="section-title">Visualizing Complexity</h2>
+    <section class="hero">
+        <svg class="doodle" style="top:10%; left:15%; width:150px" viewBox="0 0 100 100">
+            <path d="M10,50 Q25,10 50,50 T90,50" fill="none" stroke="#38bdf8" stroke-width="2"/>
+        </svg>
+        <svg class="doodle" style="bottom:20%; right:10%; width:120px" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="30" fill="none" stroke="#818cf8" stroke-width="2" stroke-dasharray="5,5"/>
+        </svg>
+
+        <p>Hey, I'm Sheilla.</p>
+        <h1>I enjoy <span class="highlight">solving</span> and <span class="highlight">storytelling</span> with data.</h1>
+        <p style="margin-top:20px; opacity: 0.6;">Applied Mathematics & Data Science</p>
+    </section>
+
+    <div class="container">
+        <h2 style="font-family: 'Space Grotesk'; font-size: 2.5rem; margin-bottom: 50px;">Featured Projects.</h2>
+        
         <div class="project-grid">
             <div class="card">
-                <span class="icon">📡</span>
-                <span class="tech-tag">Predictive Modeling</span>
-                <h3>SyriaTel Churn</h3>
-                <p>Identified churn patterns to quantify revenue-at-risk for telecom operations.</p>
-                <a href="https://github.com/sheillamacharia/SyriaTel_Retention_Insights.git" class="btn">Explore Project →</a>
+                <div class="card-inner">
+                    <span class="category">Predictive Modeling</span>
+                    <h3>SyriaTel Churn Prediction [cite: 13]</h3>
+                    <p>Quantifying revenue-at-risk using classification models for telecom retention.</p>
+                    <a href="https://github.com/sheillamacharia/SyriaTel_Retention_Insights.git" style="color:var(--accent); text-decoration: none; font-weight: bold;">View Project →</a>
+                </div>
             </div>
 
             <div class="card">
-                <span class="icon">✈️</span>
-                <span class="tech-tag">Tableau</span>
-                <h3>Aviation Risks</h3>
-                <p>Analyzing 100+ years of flight safety data to pinpoint operational risk factors.</p>
-                <a href="https://public.tableau.com/views/AviationAccidentRates/AircraftandOperationalRiskFactors?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" class="btn">View Dashboard→</a>
+                <div class="card-inner">
+                    <span class="category">Visualization [cite: 25]</span>
+                    <h3>Aviation Risk Insights</h3>
+                    <p>Analyzing 100+ years of flight safety data to identify operational risk factors[cite: 26, 27].</p>
+                    <a href="https://public.tableau.com/views/AviationAccidentRates/AircraftandOperationalRiskFactors?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" style="color:var(--accent); text-decoration: none; font-weight: bold;">View Dashboard →</a>
+                </div>
             </div>
 
             <div class="card">
-                <span class="icon">🌽</span>
-                <span class="tech-tag">Python</span>
-                <h3>Regional Crop Yield Prediction</h3>
-                <p>Developing a supervised machine learning model capable of predicting regional crop yield in Kenya using historical production data, climate variables, and agricultural input usage.</p>
-                <a href="https://regional-crop-yield-prediction-kenya.onrender.com/" class="btn">See App →</a>
+                <div class="card-inner">
+                    <span class="category">Probability</span>
+                    <h3>NCAA Tournament Forecast</h3>
+                    <p>Applying mathematical modeling to predict high-volatility tournament outcomes.</p>
+                    <a href="https://github.com/sheillamacharia/Forecast_the_2026_NCAA_Basketball_Tournaments_Competition.git" style="color:var(--accent); text-decoration: none; font-weight: bold;">View Notebook →</a>
+                </div>
             </div>
 
-            <div class="card">
-                <span class="icon">🏀</span>
-                <span class="tech-tag">Probability</span>
-                <h3>NCAA Forecast</h3>
-                <p>Leveraging Applied Mathematics to build probabilistic models for tournament outcomes.</p>
-                <a href="https://github.com/sheillamacharia/Forecast_the_2026_NCAA_Basketball_Tournaments_Competition.git" class="btn">View Notebook →</a>
+             <div class="card">
+                <div class="card-inner">
+                    <span class="category">Application</span>
+                    <h3>Kenya Regional Crop Yield Prediction</h3>
+                    <p>Developing a supervised machine learning model capable of predicting regional crop yield in Kenya using historical production data, climate variables, and agricultural input usage.</p>
+                    <a href="https://regional-crop-yield-prediction-kenya.onrender.com/" style="color:var(--accent); text-decoration: none; font-weight: bold;">View App →</a>
+                </div>
             </div>
         </div>
 
-        <div class="resume-cta">
-            <h2>Ready to see more?</h2>
-            <p>Finalizing my Applied Mathematics degree at the University of Nairobi[cite: 35]. Available for Data Science collaborations.</p>
-            <a href="Sheilla_Macharia_CV_2026.pdf" download class="download-btn">Download Full CV</a>
-        </div>
-
-        <footer style="text-align: center; margin-top: 80px; opacity: 0.4; font-size: 0.9rem;">
-            &copy; 2026 Sheilla Macharia. Designed for data impact.
-        </footer>
+        <section class="cta">
+            <h2 style="font-family: 'Space Grotesk'; font-size: 3rem;">Ready to collaborate?</h2>
+            <p>Download my full CV to see my technical toolbelt[cite: 8, 11].</p>
+            <a href="Sheilla_Macharia_CV_2026.pdf" download class="btn">DOWNLOAD CV</a> [cite: 1]
+        </section>
     </div>
+
 </body>
 </html>
